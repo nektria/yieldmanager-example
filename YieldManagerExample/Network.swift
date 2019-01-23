@@ -32,7 +32,7 @@ class Network {
         }
     }
     
-    func retrieveGrid(address: String, postalCode: String, elevator: Bool, weight: Int, startTime: String, endtime: String, completion: @escaping RetrieveGridRequestCompletionBlock) -> Void {
+    func retrieveGrid(address: String, postalCode: String, elevator: Bool, weight: Int, startTime: String, endtime: String, productLines: Int?, completion: @escaping RetrieveGridRequestCompletionBlock) -> Void {
         Client.shared.apiKey = apiKey
         Client.shared.baseUrl = apiUrl
         Client.shared.timeOut = timeout
@@ -43,7 +43,8 @@ class Network {
             elevator: elevator,
             weight: weight,
             startTime: startTime,
-            endTime: endtime
+            endTime: endtime,
+            productLines: productLines
         )
         
         Client.shared.retrieveGrid(with: request) { (response, error) in

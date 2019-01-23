@@ -29,11 +29,12 @@ class GridTableTableViewController: UITableViewController {
     var weight: Int?
     var startTime: String?
     var endTime: String?
+    var productLines: Int?
 
     override func viewWillAppear(_ animated: Bool) {
         SVProgressHUD.show()
         
-        Network.shared.retrieveGrid(address: address!, postalCode: postalCode!, elevator: elevator!, weight: weight!, startTime: startTime!, endtime: endTime!) { (response, error) in
+        Network.shared.retrieveGrid(address: address!, postalCode: postalCode!, elevator: elevator!, weight: weight!, startTime: startTime!, endtime: endTime!, productLines: productLines) { (response, error) in
             SVProgressHUD.dismiss()
             DispatchQueue.main.async(execute: {
                 if let error = error {

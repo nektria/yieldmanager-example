@@ -57,6 +57,13 @@ class RetrieveGridViewController: FormViewController {
                 }.cellUpdate({ _, _ in
                     self.checkForm()
                 })
+            <<< IntRow() { row in
+                row.tag = "productLines"
+                row.title = "Product lines"
+                row.placeholder = "10"
+                }.cellUpdate({ _, _ in
+                    self.checkForm()
+                })
     }
     
     func checkForm()  {
@@ -86,5 +93,7 @@ class RetrieveGridViewController: FormViewController {
         destination.weight = form.rowBy(tag: "weight")?.value
         destination.startTime = form.rowBy(tag: "startTime")?.value
         destination.endTime = form.rowBy(tag: "endTime")?.value
+        destination.productLines = form.rowBy(tag: "productLines")?.value
+        
     }
 }
